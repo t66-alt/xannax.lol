@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | xannax.lol</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a; /* Light black background */
+            color: #fff; /* White text color */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Hide overflow to prevent scrollbar */
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Ensure overlay is above other content */
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #fff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        .content {
+            text-align: center;
+            opacity: 0; /* Initially hidden */
+            animation: fade-in 1s forwards, move-up 1s forwards ease-out;
+        }
+        .logo {
+            width: 120px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 20px;
+            opacity: 0; /* Initially hidden */
+            animation: bounce-in 1s 0.5s forwards ease-out;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes move-up {
+            from {
+                transform: translateY(20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0.8) translateY(-20px);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.1) translateY(10px);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    <div class="content" id="mainContent">
+        <img src="Copy%20of%20HOPS.LOL.png" alt="Hops.lol Logo" class="logo">
+        <h1>Coming Soon</h1>
+        <p>Exciting things are brewing at Xannax.lol!<br>dm @t6sk on discord to buy this domain<br>i will fully build anysite for 10$<p>
+    </div>
+
+    <script>
+        // Simulate loading delay for demonstration purposes (remove in production)
+        setTimeout(function() {
+            var loadingOverlay = document.getElementById('loadingOverlay');
+            var mainContent = document.getElementById('mainContent');
+            
+            // Hide loading overlay
+            loadingOverlay.style.opacity = 0;
+            setTimeout(function() {
+                loadingOverlay.style.display = 'none';
+            }, 500); // Delay to ensure overlay is fully hidden
+            
+            // Fade in main content
+            mainContent.style.opacity = 1;
+            
+            // Trigger logo animation after content is visible
+            var logo = document.querySelector('.logo');
+            setTimeout(function() {
+                logo.style.opacity = 1; // Make logo visible
+            }, 500); // Delayed animation start to sync with CSS animations
+        }, 2000); // Simulated loading time (2 seconds)
+    </script>
+</body>
+</html>
